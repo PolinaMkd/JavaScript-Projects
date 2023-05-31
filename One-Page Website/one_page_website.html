@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jack Russell Terriers</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: rgb(179, 1, 179);
+      }
+      header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .container {
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
+
+      .image {
+        width: 30%;
+        padding: 10px;
+        box-sizing: border-box;
+        height: 400px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      nav {
+        background-color: #70397f;
+        color: #fff;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      nav li {
+        margin: 0 10px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      section {
+        padding: 20px;
+        text-align: center;
+      }
+
+      section h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: rgb(234, 243, 65);
+      }
+
+      section p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        color: white;
+      }
+
+      section img {
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        background-color: #eee;
+        margin: 0 auto;
+        width: 400px;
+        height: 400px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      form label {
+        font-size: 18px;
+        margin-right: 20px;
+        width: 150px;
+        color: green;
+        display: inline-block;
+        text-align: center;
+      }
+
+      form input,
+      form textarea {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 400px;
+        font-size: 16px;
+        resize: none;
+        background-color: #fff;
+        color: #333;
+        box-sizing: border-box;
+      }
+
+      form input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      form textarea {
+        height: 150px;
+      }
+
+      iframe {
+        max-width: 100%;
+        height: 700px;
+      }
+
+      footer {
+        background-color: #555;
+        color: #fff;
+      }
+
+      #lightbox {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      #lightbox-image {
+        display: block;
+        margin: 0 auto;
+        max-width: 90%;
+        max-height: 90%;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+      }
+    </style>
+
+    <script>
+      function openLightbox(imageUrl) {
+        document.getElementById("lightbox-image").src = imageUrl;
+        document.getElementById("lightbox").style.display = "block";
+      }
+      function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Jack Russell Terriers</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#pictures">Pictures</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home">
+        <h2>About Jack Russell Terriers</h2>
+        <p>
+          Jack Russell Terriers are small but energetic dogs that are known for
+          their intelligence and loyalty. They were originally bred in England
+          for fox hunting and are still used today for various tasks such as
+          hunting, agility, and obedience competitions. They are generally
+          friendly and affectionate towards their owners, but can be wary of
+          strangers and other animals. They require a lot of exercise and mental
+          stimulation to stay healthy and happy.
+        </p>
+      </section>
+      <section id="pictures">
+        <h2>Pictures</h2>
+        <div class="container">
+          <div class="image">
+            <img
+              src="jack-russell-1.jpg"
+              alt="Jack Russell Terrier 1"
+              onclick="openLightbox('jack-russell-1.jpg')"
+            />
+          </div>
+          <div class="image">
+            <img
+              src="jack-russell-2.jpg"
+              alt="Jack Russell Terrier 2"
+              onclick="openLightbox('jack-russell-2.jpg')"
+            />
+          </div>
+          <div class="image">
+            <img
+              src="jack-russell-3.jpg"
+              alt="Jack Russell Terrier 3"
+              onclick="openLightbox('jack-russell-3.jpg')"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="submit-form.php" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <input type="submit" value="Send" />
+        </form>
+      </section>
+
+      <section id="videos">
+        <h2>Videos</h2>
+        <iframe
+          width="700"
+          height="315"
+          src="https://www.youtube.com/embed/1_DQekevsDA"
+          title="Jack Russell Terrier: The Pros & Cons of Owning One"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Polina’s basic page about Jack Russell Terriers.</p>
+    </footer>
+    <div id="lightbox" onclick="closeLightbox()">
+      <span class="close-button" onclick="closeLightbox()">&times;</span>
+      <img id="lightbox-image" src="" alt="Lightbox Image" />
+    </div>
+  </body>
+</html>
